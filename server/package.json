@@ -1,0 +1,19 @@
+{
+  "name": "Code-Snippets-Online-Backend",
+  "version": "1.0.0",
+  "description": "Just simple RESTful API Backend",
+  "main": "index.js",
+  "author": "Helloyunho",
+  "license": "MIT",
+  "dependencies": {
+    "aes256": "^1.0.4",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "node-cron": "^2.0.3",
+    "node-rsa": "^1.0.5"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development node index.js"
+  }
+}

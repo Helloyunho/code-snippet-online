@@ -1,0 +1,17 @@
+@media (min-width: 840px) {
+  .create-snippet-grid {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 840px) {
+  .create-snippet-content {
+    min-height: calc(100vh - 24px - 24px - 64px);
+  }
+}
+
+@media (max-width: 839px) {
+  .create-snippet-content {
+    min-height: calc(100vh - 24px - 16px - 64px);
+  } 
+}

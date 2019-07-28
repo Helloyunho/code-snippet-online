@@ -1,0 +1,8 @@
+// Thanks to https://codepen.io/rustemgareev/pen/BJmOXo?editors=1100
+
+// MDC Web's default desktop breakpoint
+@media (min-width: 840px) {
+  .snippet-card-grid .mdc-layout-grid__cell:nth-child(2n+1) {
+    grid-column-start: 4;
+  }
+}

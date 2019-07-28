@@ -1,0 +1,54 @@
+{
+  "name": "code-snippers-online",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@rmwc/button": "^5.5.2",
+    "@rmwc/card": "^5.5.2",
+    "@rmwc/drawer": "^5.5.2",
+    "@rmwc/grid": "^5.5.2",
+    "@rmwc/icon-button": "^5.5.2",
+    "@rmwc/list": "^5.5.2",
+    "@rmwc/menu": "^5.5.2",
+    "@rmwc/textfield": "^5.5.2",
+    "@rmwc/theme": "^5.5.2",
+    "@rmwc/top-app-bar": "^5.5.2",
+    "@rmwc/typography": "^5.5.2",
+    "highlight.js": "^9.15.8",
+    "koa-bodyparser": "^4.2.1",
+    "monaco-editor": "^0.17.1",
+    "monaco-editor-webpack-plugin": "^1.7.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-app-rewired": "^2.1.3",
+    "react-dom": "^16.8.6",
+    "react-google-login": "^5.0.4",
+    "react-monaco-editor": "^0.28.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "rethinkdb": "^2.3.3",
+    "simple-logger": "git+https://github.com/Helloyunho/simple-logger.git",
+    "snazzy": "^8.0.0"
+  },
+  "scripts": {
+    "start": "SASS_PATH=./node_modules react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
