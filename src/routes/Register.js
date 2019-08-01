@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Grid,
-  GridCell,
-  GridInner
-} from '@rmwc/grid'
+import { Grid, GridCell, GridInner } from '@rmwc/grid'
 import { Typography } from '@rmwc/typography'
 import { TextField } from '@rmwc/textfield'
 import { Button } from '@rmwc/button'
@@ -59,18 +55,24 @@ const Register = () => {
               <TextField
                 outlined
                 label='Username'
-                onChange={({ target }) => dispatch({ type: 'username', value: target.value })}
+                onChange={({ target }) =>
+                  dispatch({ type: 'username', value: target.value })
+                }
                 value={state.username}
-                placeholder='username' />
+                placeholder='username'
+              />
             </GridCell>
             <GridCell span={12}>
               <TextField
                 outlined
                 label='Email'
-                onChange={({ target }) => dispatch({ type: 'email', value: target.value })}
+                onChange={({ target }) =>
+                  dispatch({ type: 'email', value: target.value })
+                }
                 value={state.email}
                 placeholder='example@example.com'
-                invalid={state.emailError} />
+                invalid={state.emailError}
+              />
             </GridCell>
             <GridCell span={12}>
               <GridInner>
@@ -79,22 +81,33 @@ const Register = () => {
                     outlined
                     type='password'
                     label='Password'
-                    onChange={({ target }) => dispatch({ type: 'password', value: target.value })}
+                    onChange={({ target }) =>
+                      dispatch({ type: 'password', value: target.value })
+                    }
                     value={state.password}
                     placeholder='Password'
-                    invalid={state.passwordError} />
+                    invalid={state.passwordError}
+                  />
                 </GridCell>
-                { state.passwordError ? (
+                {state.passwordError ? (
                   <GridCell span={12}>
-                    <Typography use='body1' theme='error'>The password must:</Typography>
+                    <Typography use='body1' theme='error'>
+                      The password must:
+                    </Typography>
                     <br />
-                    <Typography use='body1' theme='error'>Over 8 charaters</Typography>
+                    <Typography use='body1' theme='error'>
+                      Over 8 charaters
+                    </Typography>
                     <br />
-                    <Typography use='body1' theme='error'>Contains one or more letter</Typography>
+                    <Typography use='body1' theme='error'>
+                      Contains one or more letter
+                    </Typography>
                     <br />
-                    <Typography use='body1' theme='error'>Contains one or more number</Typography>
+                    <Typography use='body1' theme='error'>
+                      Contains one or more number
+                    </Typography>
                   </GridCell>
-                ) : null }
+                ) : null}
               </GridInner>
             </GridCell>
             <GridCell>

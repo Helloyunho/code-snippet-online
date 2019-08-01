@@ -6,30 +6,36 @@ const SimpleLogger = require('simple-logger')
 const logger = new SimpleLogger(process.env.NODE_ENV === 'development')
 const aes256 = require('aes256')
 const NodeRSA = require('node-rsa')
-const cron = require('node-cron')
-let key = new NodeRSA({
+const rethinkdb = require('rethinkdb')
+const apiRouter = require('./routes/api')
+const key = new NodeRSA({
   b: 2048
 })
-
-const autoRegenRSA = () => {
-  key = new NodeRSA({
-    b: 2048
-  })
-
-  cron.schedule('0 0 * * *', autoRegenRSA, { scheduled: true })
-}
-
-autoRegenRSA()
+let connection
+rethinkdb.connect(
+  { host: 'localhost', port: 28015 },
+  (err, conn) => {
+    if (err) {
+      logger.error(err)
+    }
+    connection = conn
+  }
+)
 
 app.use(async (ctx, next) => {
-  logger.log(`${ctx.method} ${ctx.url} ${ctx.headers.toString()} from ${ctx.ip}`)
+  logger.log(
+    `${ctx.method} ${ctx.url} ${ctx.headers.toString()} from ${ctx.ip}`
+  )
   if (typeof ctx.request.body !== 'undefined') {
     if (typeof ctx.request.body.key !== 'undefined') {
       const aesKey = key.decrypt(ctx.request.body.key, 'utf8')
       ctx.request.key = aesKey
-      ctx.request.content = JSON.parse(aes256.decrypt(aesKey, ctx.request.body.data))
+      ctx.request.content = JSON.parse(
+        aes256.decrypt(aesKey, ctx.request.body.data)
+      )
     }
   }
+  ctx.conn = connection
   await next()
 })
 
@@ -37,9 +43,11 @@ app.on('error', (err) => {
   logger.error(err)
 })
 
-router.get('/res/public', (ctx) => {
+router.get('/rsa/public', (ctx) => {
   ctx.body = { key }
 })
+
+router.use(apiRouter.routes(), apiRouter.allowedMethods())
 
 app.use(router.routes()).use(router.allowedMethods())
 

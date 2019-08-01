@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  Grid,
-  GridCell,
-  GridInner
-} from '@rmwc/grid'
+import { Grid, GridCell, GridInner } from '@rmwc/grid'
 import { Typography } from '@rmwc/typography'
 import { TextField } from '@rmwc/textfield'
 import { Button } from '@rmwc/button'
@@ -50,10 +46,13 @@ const Login = () => {
               <TextField
                 outlined
                 label='Email'
-                onChange={({ target }) => dispatch({ type: 'email', value: target.value })}
+                onChange={({ target }) =>
+                  dispatch({ type: 'email', value: target.value })
+                }
                 value={state.email}
                 placeholder='example@example.com'
-                invalid={state.emailError} />
+                invalid={state.emailError}
+              />
             </GridCell>
             <GridCell span={12}>
               <GridInner>
@@ -62,9 +61,12 @@ const Login = () => {
                     outlined
                     type='password'
                     label='Password'
-                    onChange={({ target }) => dispatch({ type: 'password', value: target.value })}
+                    onChange={({ target }) =>
+                      dispatch({ type: 'password', value: target.value })
+                    }
                     value={state.password}
-                    placeholder='Password' />
+                    placeholder='Password'
+                  />
                 </GridCell>
               </GridInner>
             </GridCell>
