@@ -24,8 +24,12 @@ package-lock.json
 # DB
 rethinkdb_data
 
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 standard.log*
 *.log
+
+# VSCode
+.vscode

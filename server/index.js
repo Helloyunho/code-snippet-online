@@ -23,19 +23,18 @@ rethinkdb.connect(
 )
 
 app.use(async (ctx, next) => {
-  logger.log(
-    `${ctx.method} ${ctx.url} ${ctx.headers.toString()} from ${ctx.ip}`
-  )
+  logger.log(`${ctx.method} ${ctx.url} from ${ctx.ip}`)
   if (typeof ctx.request.body !== 'undefined') {
     if (typeof ctx.request.body.key !== 'undefined') {
       const aesKey = key.decrypt(ctx.request.body.key, 'utf8')
       ctx.request.key = aesKey
-      ctx.request.content = JSON.parse(
+      ctx.request.data = JSON.parse(
         aes256.decrypt(aesKey, ctx.request.body.data)
       )
     }
   }
   ctx.conn = connection
+  ctx.logger = logger
   await next()
 })
 

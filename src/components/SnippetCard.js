@@ -17,26 +17,24 @@ const SnippetCard = (props) => {
   return (
     <Card>
       <CardPrimaryAction tag={Link} to={`/snippet/${id}`}>
-        <CardMedia sixteenByNine style={{
-          backgroundImage: `url(${thumbnail})`
-        }} />
+        <CardMedia
+          sixteenByNine
+          style={{
+            backgroundImage: `url(${thumbnail})`
+          }}
+        />
         <div style={{ padding: '0 1rem 1rem 1rem' }}>
           <Typography use='headline6' tag='h2'>
-            { name }
+            {name}
           </Typography>
           <Typography
             use='subtitle2'
             tag='h3'
             theme='textSecondaryOnLight'
-            style={{ marginTop: '-1rem' }}
-          >
-            by { author }
+            style={{ marginTop: '-1rem' }}>
+            by {author.username}
           </Typography>
-          <Typography
-            use='body1'
-            tag='div'
-            theme='textSecondaryOnLight'
-          >
+          <Typography use='body1' tag='div' theme='textSecondaryOnLight'>
             {desc}
           </Typography>
         </div>
