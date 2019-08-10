@@ -50,6 +50,7 @@ router.get('/snippets/:id', async (ctx) => {
     .db('cso')
     .table('snippets')
     .filter({ sid: parseInt(ctx.params.id) })
+    .run(ctx.conn)
 
   const {
     title,

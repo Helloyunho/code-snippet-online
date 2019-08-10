@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <Grid className='snippet-card-grid'>
       {typeof snippets === 'undefined' ? (
-        <GridCell span={12}>
+        <GridCell span={6}>
           <LinearProgress style={{ marginTop: '1rem' }} />
         </GridCell>
       ) : (
@@ -28,15 +28,17 @@ const Home = () => {
           }
 
           return (
-            <GridCell>
-              <SnippetCard
-                id={snippet.sid}
-                name={snippet.title}
-                desc={snippet.desc}
-                author={snippet.author}
-                thumbnail={snippet.thumbnail}
-              />
-            </GridCell>
+            <>
+              <GridCell desktop={3}>
+                <SnippetCard
+                  id={snippet.sid}
+                  name={snippet.title}
+                  desc={snippet.desc}
+                  author={snippet.author}
+                  thumbnail={snippet.thumbnail}
+                />
+              </GridCell>
+            </>
           )
         })
       )}
