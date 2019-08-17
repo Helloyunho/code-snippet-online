@@ -1,9 +1,3 @@
-# Deprecated
-
-This repo is moved to https://github.com/seoaapp/code-snippet-online
-
-This repo will be used only for PR to new repo.
-
 # code-snippet-online
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
